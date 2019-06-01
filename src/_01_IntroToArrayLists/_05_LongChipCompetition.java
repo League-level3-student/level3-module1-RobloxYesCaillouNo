@@ -16,7 +16,16 @@ public class _05_LongChipCompetition {
 
 	public static void main(String[] args) {
 		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
+		lcc.initializeBeatles();
+	}
+	
+	public void longestChip() {
+		for (int i = 0; i < theBeatles.size(); i++) {
+				theBeatles.get(i).getChips();
+				System.out.println();
+		}
 		
+	
 	}
 	
 	private void initializeBeatles() {
