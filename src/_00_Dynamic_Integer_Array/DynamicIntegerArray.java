@@ -2,33 +2,36 @@ package _00_Dynamic_Integer_Array;
 
 public class DynamicIntegerArray {
 	//1. Create a private int array. Don't initialize it.
-
+	private int[] array;
 	
 	public DynamicIntegerArray() {
 		//2. Initialize the int array to have 0 elements. 
 		//   This will prevent a null pointer exception
-	
+		array = new int[0];
 	}
 	
 	//3. Complete the steps in the add method
 	public void add(int v) {
 		//A. create and initialize a new int array to be one 
 		//   element longer than the member array
-		
+			int[] newArray = new int[array.length+1];
 		//B. set the last element of your new array to 
 		//   the value passed into the method
-		
+		newArray[newArray.length-1] = v;
 		//C. iterate through the member array and 
 		//   copy every element from the member array 
 		//   to the new array
-		
+		for (int i = 0; i < array.length; i++) {
+		newArray[i] = array[i];	
+		}
 		//D. set the member array equal to the new array.
+		 newArray = array;
 	}
 	
 	//4. Complete the steps in the get method
 	public int get(int location) {
-		//A. Return the value of the memeber array at the location passed in
-		return 0;
+		//A. Return the value of the member array at the location passed in
+		return array[location];
 	}
 	
 	//5. Run the DynamicArrayTest to see if you are correct so far.
@@ -38,26 +41,36 @@ public class DynamicIntegerArray {
 	public void set(int v, int location) {
 		//A. set the variable at the location passed in to the method
 		//   to the new value v
+		array[location] = v;
 	}
 	
 	//7. Complete the steps in the insert method
 	public void insert(int v, int location) {
 		//A. create and initialize a new int array to be one 
 		//   element longer than the member array
-		
+		int[] newerArray = new int[array.length+1];
 		//B. Make a for loop that iterates through the new array
-
+		for (int i = 0; i < newerArray.length; i++) {
+			
 			//C. if i is less than location:
 		    //		set the element at i of the new array to the element at i of the member array
-			
+				if (i < location) {
+					newerArray[i] = array[i];
+				}
 			//D. else if i is greater than location:
 		    //		set the element at i of the new array to the i - 1 element of the member array
-			
+				else if (i > location) {
+					newerArray[i] = array[i-1];
+				}
 			//E. else, set the element at i of the new array to the value v
-		
+				else {
+					newerArray[i] = v;
+				}
+	
+		}
 		
 		//F. set the member array equal to the new array
-	
+	int[] array = newerArray;
 	}
 	
 	//8. Run the tests again and check your progress
